@@ -1,0 +1,5 @@
+We have ab mod c = d where we know b(key) c(251) and d(encrypted pixel value)
+Some modular arithmetic gets us to a mod c = (d^-1 mod c * b mod c) mod c
+Use euclidian algorithm for modular inverse
+Calculate a to get a pixel value that works(might not be the actual one, but close enough) for every pixel in the image
+You'll get an image with the flag actf{m0dd1ing_sk1llz}

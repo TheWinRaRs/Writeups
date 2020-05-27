@@ -1,14 +1,14 @@
-Jarvis
+# Jarvis
 
-so i was looking at the csv and thought "kek tf does this mean" but then i checked the range values for the csv and saw they were rly
+So i was looking at the csv and thought `"kek tf does this mean"` but then i checked the range values for the csv and saw they were rly
 similar. i looked at the hint about tony stark and thought maybe i need to build an ai or some shit. 
 woa kept telling me i was mental and had big confusion but i continued anyway.
 i built one (code below) and ran it (followed tutorial with adjustments for massive training data).
-the output it gave was in binary (like in training data). i converted to text and gave flag{mlWis_cool} 
-but it looked like some bits were flipped so i changed it to flag{ml_is_cool} which is flag.
+the output it gave was in binary (like in training data). i converted to text and gave `flag{mlWis_cool} `
+but it looked like some bits were flipped so i changed it to `flag{ml_is_cool}` which is flag.
 
 https://medium.com/technology-invention-and-more/how-to-build-a-simple-neural-network-in-9-lines-of-python-code-cc8f23647ca1
-
+```python
 hlp = open("help.csv","r").read().split("\n")
 hlp = [[int(y) for y in x.split(",")] for x in hlp]
 
@@ -59,4 +59,4 @@ for i,j in enumerate(flg):
     b += str(int(a))
     print(int(a))
 print(b)
-
+```

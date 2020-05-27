@@ -7,7 +7,7 @@ So i just followed the tutorial kek. i spent so long understanding what it meant
 3. chinese remainder thereom!!!!!
 4. compute shared key (other ** step3 % modulus)
 5. xor and convert to hex then text!!!
-#### tjctf{Ali3ns_1iv3_am0ng_us!}
+tjctf{Ali3ns_1iv3_am0ng_us!}
 ```
 
 did it this script (after chinese remainder i got `64460789473481109991812750133942026256` alice - doesnt need to be prime because they cycle)

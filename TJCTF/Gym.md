@@ -34,7 +34,7 @@ Input in:
 3
 3
 3
-2
+2  
 Wait 3 seconds, boom, profit
 
 #### tjctf{w3iGht_l055_i5_d1ff1CuLt}

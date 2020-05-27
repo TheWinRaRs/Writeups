@@ -20,4 +20,4 @@ for i in range(100):
 ```
 
 The password is 'blinded', the flag is:
-# tjctf{blinded}
+#### tjctf{blinded}

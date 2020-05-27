@@ -12,7 +12,7 @@ Then, we change the beginning of our buffer to be the address of our shellcode.I
 
 We can use pattern.py to figure out the amount of bytes until esp, which is 32.
 
-### NOTE! it subtracts 4 from our chosen esp value, so we must take care of this.
+#### NOTE! it subtracts 4 from our chosen esp value, so we must take care of this.
 I created custom shellcode that had to have the address of a string /bin/sh which I also put in the input.
 ```python
 from pwn import *

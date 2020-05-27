@@ -1,6 +1,0 @@
-Titanic
-
-curl http://www.dailyscript.com/scripts/Titanic.txt | tr '[:space:]' '\n' | sed  '/^$/d' | | tr -d '.' | tr -d ',' | tr '[:upper:]' '[:lower:]' > wl
-for i in $(cat wl); do echo "tjctf{$i}" >> wl2; done
-john -w=wl3 hash --format=raw-md5
-tjctf{ismay's}

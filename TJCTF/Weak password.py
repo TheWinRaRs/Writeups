@@ -1,7 +1,4 @@
-Weak password
-
-We can use the LIKE clause to guess characters
-Full script:
+# We can use the LIKE clause to guess characters
 
 import requests
 
@@ -19,4 +16,5 @@ for i in range(100):
     else:
         print('\nPassword found')
 
-The password is 'blinded', the flag is tjctf{blinded}
+
+# The password is 'blinded', the flag is tjctf{blinded}

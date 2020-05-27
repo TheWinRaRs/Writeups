@@ -1,13 +1,14 @@
-rgbsa
+# rgbsa
 
-extract red pixel vals from each frame (last bit)
+Extract red pixel vals from each frame (last bit)
 go to day's site
 
  https://medium.com/bugbountywriteup/rsa-attacks-common-modulus-7bdb34f331a5 
  
 copy code with adjustments. convert output to text and bam! 
-flag{excitable_illumination_wanderer_}
+#### flag{excitable_illumination_wanderer_}
 
+```python
 def main():
     from PIL import Image, ImageFilter
 
@@ -48,3 +49,4 @@ def main():
     alln = openshit("n.gif")
     alle = openshit("e.gif")
     allc = openshit("new_c.gif")
+```

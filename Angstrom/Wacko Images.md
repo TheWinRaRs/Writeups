@@ -1,7 +1,7 @@
 # Wacko Images
 
-We have ab mod c = d where we know b(key) c(251) and d(encrypted pixel value)
-Multiplying by the modular inverse of b gets us
+We have ab mod c = d where we know b (key), c (251), and d (encrypted pixel value).
+Multiplying by the modular inverse of b gets us:
 a mod c = d * b^-1 mod c
 
 Calculate this for every pixel in the image with a script, and you get an image that contains the flag.

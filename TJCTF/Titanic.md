@@ -1,4 +1,4 @@
-Titanic
+# Titanic
 
 The first step is to get a list of all the words from the titanic:
 
@@ -16,4 +16,4 @@ Then we can use the password cracking tool john to get the flag.
 john -w=wl3 hash --format=raw-md5
 ```
 
-The flag is tjctf{ismay's}
+#### The flag is tjctf{ismay's}

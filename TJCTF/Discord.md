@@ -72,13 +72,16 @@ We were running out of time.
 This was an emergency.
 
 Immediately I recruited help from our team's Asian, PotatoK. He was able to read the letters and numbers and so, after a long while of waiting, we got access to the server! Those 5 points were finally going to be ours! However, once again, due to the delicate crafting of this challenge by the creator, KyleForkBomb(who even is that guy), we were stopped in our tracks once again. "How many parts does this challenge have?", I thought to myself. I decided to go back to the challenge page, and luckily enough, there was a relevant hint!
-" Type ?flag in chat"
+
+`"Type ?flag in chat"`
+
 So I proceeded to type in "?flag in chat", in the hopes that it would give me the flag, but after 5 seconds of me typing "?flag in chat" into notepad, it was clear that this was going nowhere. So, I kept on pushing. I found a shortcut for typing it as well, by simply CTRL-C to copy and CTRL-V to paste. However, even after a further 7 seconds of typing it, no flag was there. Where was this flag, and why was it so difficult just for 5 measly points? I had to beat Pwn to 0xE4. I had to.
 
 After a few more seconds of trying to type "?flag into chat" into my notepad window, I decided to try and take the hint from another perspective. 
 I decided to read the hint once more.
 
-"Type ?flag in chat"
+`"Type ?flag in chat"`
+
 Ever since we discovered the hint, we had always interpreted it as 'Type "?flag i n chat"'. But what if it was meaning something else? For example, it could have meant 'Type "?flag" in chat'.
 
 Now everything made sense. 

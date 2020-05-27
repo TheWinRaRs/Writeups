@@ -54,3 +54,4 @@ for i,j in enumerate(flg):
     b += str(int(a))
     print(int(a))
 print(b)
+

@@ -1,7 +1,9 @@
-Gamer M
+# Gamer M
 
-after analysing the random.randint i found that it was rigged (info by botters) so i just reversed what it done (with help from tony) and pieced it together - code below tjctf{i5AJ0borFRenCx6342}
+After analysing the random.randint i found that it was rigged (info by botters) so i just reversed what it done (with help from tony) and pieced it together - code below  
+#### tjctf{i5AJ0borFRenCx6342}
 
+```python
 def getindex(a):
     out = []
     for i in a:
@@ -49,3 +51,4 @@ for k in range(5):
         for i in alpha:
             print(i,alpha2[i],end=" ")
         print()
+```

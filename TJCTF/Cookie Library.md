@@ -1,4 +1,4 @@
-Cookie Library
+# Cookie Library
 
 NX, no PIE. The whole cookie thing is largely irrelevant so I'm not gonna comment on it.
 
@@ -12,6 +12,7 @@ We don't have a pop rdx gadget inside of the binary, so it's impossible... right
 
 Wrong, actually. At this point in the exploit, we know the libc base, so we can use rop gadgets inside of the libc. 
 So the full exploit is:
-
+```
 1. use ret2plt to leak a libc address via the PLT and GOT
 2. do poprdi + /bin/sh + pop rdx ; pop rsi + 0 + 0 + system in order to pop a shell
+```

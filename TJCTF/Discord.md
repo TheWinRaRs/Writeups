@@ -175,6 +175,6 @@ Swiftly I wrote the flag down, and copied it into the flag box.
 We would go on to get defeated by Pwn to 0xE4, as they solved Naughty, meaning that these 5 points made all the difference.
 
 Thank you for making this one of the most difficult CTF challenges I have ever solved, and even though it was only worth 5 points, they were more than satisfying to get.
-Flag: tjctf{circles_was_a_bad_challenge}
+#### Flag: tjctf{circles_was_a_bad_challenge}
 
 -@Willwam845

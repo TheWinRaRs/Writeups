@@ -1,6 +1,6 @@
 # Wacko Images
 
-![text](https://github.com/TheWinRaRs/Writeups/blob/master/Angstrom/Wacko%20Images/enc.png) ![text](https://github.com/TheWinRaRs/Writeups/blob/master/Angstrom/Wacko%20Images/flag.png)
+![flag](https://media.discordapp.net/attachments/688147022267547780/688497589653733578/flag.png)
 
 We have ab mod c = d where we know b (key), c (251), and d (encrypted pixel value).
 Multiplying by the modular inverse of b gets us:

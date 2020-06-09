@@ -1,4 +1,4 @@
-# Finding Server Information - Web
+# Finding Server Information
 
 We are given the name of the source code file `app.py`, and we need to find a way to read it.
 
@@ -16,6 +16,4 @@ In the source code of the page, we can see:
 
 `data:video/mp4;base64,ractf{qu3ry5tr1ng_m4n1pul4ti0n}`
 
-This is our flag.
-
-#### ractf{qu3ry5tr1ng_m4n1pul4ti0n}
+#### Flag: ractf{qu3ry5tr1ng_m4n1pul4ti0n}

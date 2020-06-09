@@ -2,7 +2,7 @@
 
 We can see in HTML comments of the web page: 
 ```
-html
+javascript
 <!-- In case I forget: Backup password is at ./backup.txt -->
 ```
 However we get a 403 Forbidden if we try to access this file with `/backup.txt`

@@ -1,3 +1,5 @@
+# Discord
+
 OWO, we do seem to be getting a lot of these discowrd challenges in CTFs, and they arwe vewwy vewwy hawrd, this one especiawwy! 
 
 It seems the fiwrst mention of "Discowrd" being wewated to a challenge in the sewver is way back in Juwuly 2019, whewre miwstew benjamin techinson mentions a token, so that couwuld be a fwag! This awlso meant the challenge appeawed to be unsolvwed since then. As we werwe the team to blood this challenge, I think we should definitely make a wrwiteup on this tough challenge.
@@ -106,4 +108,4 @@ It tuwrns out howevewr, that Rowowan, the new membewr, had alweady submitted it 
 
 In the end, we got cwushed by PuWuN to 0w0xE4 once again, as they solvwed EEE much fastewr than we did, meaning we did a gweat job, and cwushed them to bits!
 
-Flag: ractf{botters_is_a_sadist}
+#### Flag: ractf{botters_is_a_sadist}

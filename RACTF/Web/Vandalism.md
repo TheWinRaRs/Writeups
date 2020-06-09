@@ -1,6 +1,6 @@
 # Vandalism
 
-Once we have logged in as admin (Admin Abuse) I noticed a header referencing /__adminPortal
+Once we have logged in as admin (Admin Attack) I noticed a header referencing /__adminPortal
 
 Going to this presents us with some ascii art, and some text (hidden) which is covered in zalgo. 
 

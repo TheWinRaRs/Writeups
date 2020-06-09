@@ -31,9 +31,9 @@ we can use this to generate bytecode to call globals, `b"t\x02\x83\x00"`. Then, 
 
 Now what? Loaded on the stack is the function eval. Now, using the same method as put_on_stack again, we construct our python payload that cats the flag. Finally, we wrap it all up with a b"\x83\x01" - call the function eval, loaded from globals()['eval'], with one argument.
 
-I ended up doing some enumeration, and finding `flag.tx`t in `/home/ractf`, then catting it.
+I ended up doing some enumeration, and finding `flag.txt` in `/home/ractf`, then catting it.
 
-This results in the flag ractf{Puff3rf1sh??}. I will post the final bytecode, my generation script, and the final exploit script below.
+This results in the flag ractf{Puff3rf1sh??}. I will post the final bytecode below and my generation script and final exploit script as `generator.py` and `puffer.py`.
 
 
 Bytecode: 

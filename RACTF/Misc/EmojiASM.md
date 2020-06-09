@@ -10,7 +10,7 @@ Load reg A into reg X
 Load garbage address into reg A  
 If compare earlier was true jump to garbage and die  
 Else reset tape 0  
----JUMP BACK POINT---
+---JUMP BACK POINT---  
 Load value from reg X back into reg A  
 Step forward in T0  
 Decrement reg A  

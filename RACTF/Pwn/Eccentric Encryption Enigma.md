@@ -133,4 +133,4 @@ The fact the encryption of a close flag with the key frag1frag2lastfrag resemble
 From there, we tried concatenating  `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu` (the binary's ciphertext) with a bunch of other ciphertexts and throwing it into our related-key-bruteforce-script created by Tony. Eventually, `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu` + `QnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==` was concatenated to create the larger ciphertext `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZuQnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==`,which decrypted with the key frag1frag2lastfrag to the real flag.
 
 
-#### Flag:actf{Th1ngs_Th4t_I_Cann0t_Compr3hend}
+#### Flag:ractf{Th1ngs_Th4t_I_Cann0t_Compr3hend}

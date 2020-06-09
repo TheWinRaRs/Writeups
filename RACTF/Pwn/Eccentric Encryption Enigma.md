@@ -2,7 +2,7 @@
 
 Let's start from scratch - run the binary. It'll complain to us that we don't have some python library called memecrypt installed. That's odd.. why does it demand a python library if its an ELF file? More on this later. We can install with ```python3 -m pip install memecrypt```, and the binary runs smoothly, printing out what seems to be a python byte string.
 
-Let's analyse this further. If we spam control c as the program is running, it gives us an error message about a KeyboardInterrupt, saying it's within a file owo.py. We can inspect further in classic reversing tools in ghidra, and find all sorts of python functions like __Pyx_PyObject_GetAttrStr or __Pyx_PyObject_Call2Args. This shows us it seems to be a python install zipped up with some python code/bytecode, or compiled cython. We decided to look into tools specialised in reversing things like this, and came across a program called REpdb which is part of the pyREtic library, made for reversing python that is put together in executable files like this as well as bytecode.
+Let's analyse this further. If we spam control c as the program is running, it gives us an error message about a KeyboardInterrupt, saying it's within a file owo.py. We can inspect further in classic reversing tools in ghidra, and find all sorts of python functions like `__Pyx_PyObject_GetAttrStr` or `__Pyx_PyObject_Call2Args`. This shows us it seems to be a python install zipped up with some python code/bytecode, or compiled cython. We decided to look into tools specialised in reversing things like this, and came across a program called REpdb which is part of the pyREtic library, made for reversing python that is put together in executable files like this as well as bytecode.
 
 In order to use REpdb, we needed an inject point. That's where memecrypt comes in. REpdb has to be run by the process it's reversing - the easiest way to do this was to force the process to import malicious python code. We can accomplish this by editing our memecrypt.py install, or by creating a fake memecrypt.py file. I did the latter, tony did the former.
 Here is my fake memecrypt.py file where meme_orig is my renamed real memecrypt install.
@@ -16,7 +16,7 @@ meme_cipher = meme_orig.meme_cipher
 ```
 I added those last two lines so that the program could use meme_cipher normally.
 With this setup, running the binary drops us into a REpdb prompt to inspect the program.
-What do we see? As we step through, we can see the ciphertext eDxTP2RoekN4KkVXeDpQQyU+Sy5cPidXZSR6QGRaLktkSycrITpQS1xXem5cV3pvZTpFb2NXekRcNkstZSRub2U6RW9qJGZH  being loaded into a meme_cipher object along with the key lmao. What does it decrypt to?
+What do we see? As we step through, we can see the ciphertext `eDxTP2RoekN4KkVXeDpQQyU+Sy5cPidXZSR6QGRaLktkSycrITpQS1xXem5cV3pvZTpFb2NXekRcNkstZSRub2U6RW9qJGZH`  being loaded into a meme_cipher object along with the key lmao. What does it decrypt to?
 It decrypts to ```"from secrets import token_bytes as hush;print(hush())"```
 A little research shows us that token_bytes generates some cryptographically secure random bytes. Since it prints the output of this, that seems to be what our byte string is. Tony also found this earlier through attaching tools like gdb into the process.
 
@@ -44,7 +44,7 @@ I wrote a small script to call every function with a small delay.
 return "import time\nfor func in filter(lambda x: type(x) == type(owo), list(globals().keys)): print(func(),func);time.sleep(5)
 ```
 Showing me the output of every function and it's respective function. 
-We get a lot here. First of all, the flag function returns a fake flag, decrypting the ciphertext K3swTVxHOGtyWVclZmd0OGYueUZ5RzJYXForP1wwdHJbR1dhVGcrPytndFFUPzhMW0dcdA== with the key 1337_revese_engineering. 
+We get a lot here. First of all, the flag function returns a fake flag, decrypting the ciphertext `K3swTVxHOGtyWVclZmd0OGYueUZ5RzJYXForP1wwdHJbR1dhVGcrPytndFFUPzhMW0dcdA==` with the key 1337_revese_engineering. 
 
 Various youtube links like https://www.youtube.com/watch?v=h0oclM1Yw2A, https://youtu.be/h6DNdop6pD8 and https://www.youtube.com/watch?v=dQw4w9WgXcQ are decrypted with the key yt and then used in webbrowser. We can't find too much else useful with this code injection, but it allows us to get a handle on what exactly is happening in this program.
 
@@ -68,9 +68,9 @@ undefined  [16] __pyx_pw_3owo_1owo(void)
   return CONCAT88(in_RAX,0xa7e160);
 }
 ```
-here, in the function owo, one of the small ciphertexts, T0YqVGBGJzZiLXYp, is referenced. Right afterwards, so is the word apollo. Why don't we attempt to decrypt T0YqVGBGJzZiLXYp with apollo?
+here, in the function owo, one of the small ciphertexts, `T0YqVGBGJzZiLXYp`, is referenced. Right afterwards, so is the word `apollo`. Why don't we attempt to decrypt `T0YqVGBGJzZiLXYp` with `apollo`?
 
-We do, and it decrypts to lastfrag.
+We do, and it decrypts to `lastfrag`.
 Last frag implies fragments, fragments of some form of larger ciphertext or key. We decided this had to be on track, and looked for other frags.
 ```C
 undefined  [16] __pyx_pw_3owo_45frag(void)
@@ -88,7 +88,7 @@ undefined  [16] __pyx_pw_3owo_45frag(void)
   return CONCAT88(in_RAX,0xa7e160);
 }
 ```
-here! the ciphertext QVZHZUEqOnM= is mentioned, and so is rain! This decrypts to frag1. Finally... 
+here! the ciphertext `QVZHZUEqOnM=` is mentioned, and so is `rain`! This decrypts to `frag1`. Finally... 
 ```C
 undefined  [16] __pyx_pw_3owo_31i3_tiling_wm(void)
 
@@ -105,32 +105,32 @@ undefined  [16] __pyx_pw_3owo_31i3_tiling_wm(void)
   return CONCAT88(in_RAX,0xa7e160);
 }
 ```
-the ciphertext ZGBXYmRbfXU= is mentioned along with the word champions, and this decrypts to frag2.
+the ciphertext `ZGBXYmRbfXU=` is mentioned along with the word champions, and this decrypts to frag2.
 No more small ciphertexts remainded, and linus confirmed it for us - these were all the frags we needed. 
-Key: rain, CT: QVZHZUEqOnM=, PT: frag1
-Key: champions, CT: ZGBXYmRbfXU=, PT: frag2
-Key: apollo, CT: T0YqVGBGJzZiLXYp, PT: lastfrag
+Key: `rain`, CT: `QVZHZUEqOnM=`, PT: frag1
+Key: `champions`, CT: `ZGBXYmRbfXU=`, PT: frag2
+Key: `apollo`, CT: `T0YqVGBGJzZiLXYp`, PT: lastfrag
 
 From there, we tried to figure out how to put them together. Putting together the ciphertexts, the keys, the plaintexts, all sorts of combinations. We searched for larger ciphertexts that we hadn't cracked yet, and found
-b2o+LiRjVll0eHw8TXteVk1dVXdVYyZzJHlvOiQ+XnQ2Y3xmU3tvOm97XklTOlYxNmMkXg==
-QnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==
-Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu
+`b2o+LiRjVll0eHw8TXteVk1dVXdVYyZzJHlvOiQ+XnQ2Y3xmU3tvOm97XklTOlYxNmMkXg==`
+`QnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==`
+`Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu`
 and
-JUdMP2czQ3MuM1s0TkclbHlsZ20vRmZteXxMZC9sfnZDeWo1TkdIQVF5IkFTNiRxJT5PIlY7ZnAlPGo1Tm58cg==
+`JUdMP2czQ3MuM1s0TkclbHlsZ20vRmZteXxMZC9sfnZDeWo1TkdIQVF5IkFTNiRxJT5PIlY7ZnAlPGo1Tm58cg==`
 
 eventually, will was able to decrypt 
-JUdMP2czQ3MuM1s0TkclbHlsZ20vRmZteXxMZC9sfnZDeWo1TkdIQVF5IkFTNiRxJT5PIlY7ZnAlPGo1Tm58cg== with the key frag1frag2frag3 to get the plaintext ractf{Thing5_Wh1ch_Ar3_Bey0nd_My_C0mpreh3nsi0n}, which wasn't actually the flag.
+`JUdMP2czQ3MuM1s0TkclbHlsZ20vRmZteXxMZC9sfnZDeWo1TkdIQVF5IkFTNiRxJT5PIlY7ZnAlPGo1Tm58cg==` with the key frag1frag2frag3 to get the plaintext ractf{Thing5_Wh1ch_Ar3_Bey0nd_My_C0mpreh3nsi0n}, which wasn't actually the flag.
 
 But, we were told it was incredibly close.
 
 frag1frag2frag3 didnt make much sense, we only had frag1, frag2 and lastfrag. Woa came up with the idea to try encrypting our "fake" flag with the key frag1frag2lastfrag to see what it looked like, and what did we get?
-Xjk6Y1N3PDAsP35BYn1uPGJtVk9Wdz1DU1leV1M6bix5d344Wn1eV159bkhaVzx4eXdTbg==
-This is remarkably close to the ciphertext we found in the binary, Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu
+`Xjk6Y1N3PDAsP35BYn1uPGJtVk9Wdz1DU1leV1M6bix5d344Wn1eV159bkhaVzx4eXdTbg==`
+This is remarkably close to the ciphertext we found in the binary, `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu`
 
 
 The fact the encryption of a close flag with the key frag1frag2lastfrag resembles a ciphertext we had already found must've meant something.
 
-From there, we tried concatenating  Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu (the binary's ciphertext) with a bunch of other ciphertexts and throwing it into our related-key-bruteforce-script created by Tony. Eventually, Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu + QnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw== was concatenated to create the larger ciphertext Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZuQnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==,which decrypted with the key frag1frag2lastfrag to the real flag.
+From there, we tried concatenating  `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu` (the binary's ciphertext) with a bunch of other ciphertexts and throwing it into our related-key-bruteforce-script created by Tony. Eventually, `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZu` + `QnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==` was concatenated to create the larger ciphertext `Xjk6Y1N3PDBWdz0jNjlTOFp9bCJ5bWxPRFZuQnxZNFtibWxPWD9udF5tcjgmd1ZbPG1XJw==`,which decrypted with the key frag1frag2lastfrag to the real flag.
 
 
 #### Flag:actf{Th1ngs_Th4t_I_Cann0t_Compr3hend}

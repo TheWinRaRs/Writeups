@@ -1,6 +1,6 @@
 # Quarantine
 
->First I tried 
+First I tried 
 
 `' or 1=1; -- -` to bypass login, 
 

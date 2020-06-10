@@ -13,7 +13,7 @@ We can, however, use our format string vulnerability to leak the canary value, a
 
 junk + canary + 12 bytes of junk + address of flag function
 
-And this works perfectly.
+
 ```python
 from pwn import *
 import re

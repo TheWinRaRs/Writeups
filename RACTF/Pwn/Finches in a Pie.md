@@ -12,7 +12,7 @@ We're in luck. When a function is called, the address of the instruction for it 
 
 This means if the value isn't later overwritten, the addresses of some instructions, including instructions of functions of the binary, will remain on the stack.
 
-So? So, we can leak an instruction of a function in the binary, and calculate the base off of this. 
+Thus we can leak an instruction of a function in the binary, and calculate the base off of this. 
 
 I chose stack item 3, the address of the instruction in say_hi after it calls the pc_get_thunk function.
 Our exploit:

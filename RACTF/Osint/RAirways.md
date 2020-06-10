@@ -1,5 +1,5 @@
 # RAirways
 
-Scan the barcode thing on the boarding pass.
+Scan the barcode  on the boarding pass with a barcode reader.
 
 #### ractf{B0ard1ngP4SS} 

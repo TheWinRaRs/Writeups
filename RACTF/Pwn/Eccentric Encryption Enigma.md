@@ -106,10 +106,11 @@ undefined  [16] __pyx_pw_3owo_31i3_tiling_wm(void)
 }
 ```
 the ciphertext `ZGBXYmRbfXU=` is mentioned along with the word champions, and this decrypts to frag2.
-No more small ciphertexts remainded, and linus confirmed it for us - these were all the frags we needed. 
+No more small ciphertexts remainded, and linus confirmed it for us - these were all the frags we needed.
+
 Key: `rain`, CT: `QVZHZUEqOnM=`, PT: frag1\
 Key: `champions`, CT: `ZGBXYmRbfXU=`, PT: frag2\
-Key: `apollo`, CT: `T0YqVGBGJzZiLXYp`, PT: lastfrag\
+Key: `apollo`, CT: `T0YqVGBGJzZiLXYp`, PT: lastfrag
 
 From there, we tried to figure out how to put them together. Putting together the ciphertexts, the keys, the plaintexts, all sorts of combinations. We searched for larger ciphertexts that we hadn't cracked yet, and found
 `b2o+LiRjVll0eHw8TXteVk1dVXdVYyZzJHlvOiQ+XnQ2Y3xmU3tvOm97XklTOlYxNmMkXg==`,

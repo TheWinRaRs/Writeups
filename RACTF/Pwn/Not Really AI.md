@@ -1,7 +1,7 @@
 # Not Really AI
 A pwn challenge. Just a simple format string exploit.
 
-Protections: Partial RELRO, no PIE, we can overwrite the GOT
+Protections: Partial RELRO, no PIE, therefore we can overwrite the GOT as it is not read-only.
 
 When our input is asked for, it is printed out using printf without proper format strings.
 
@@ -9,7 +9,9 @@ Our input is put on the stack, so the program is vulnerable to arbtirary writes 
 
 There's no buffer overflow, and only one input, so we shouldn't be leaking anything.
 
-We can send a simple format string overwrite payload to rewrite puts@GOT with the address of the function flaggy, and the flag will be yours.
+We can send a simple format string overwrite payload to rewrite puts@GOT with the address of the function flaggy, and the flag will be yours.\
+This works as puts@plt is called just after printf is called on our input, so we can overwrite the GOT entry with a different value.\
+Thus when the plt is called it will find a different GOT value and jump to that.
 
 Here is the solve script:
 ```python

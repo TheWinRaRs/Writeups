@@ -6,6 +6,7 @@ On our first input, there's a format string vuln.
 
 On the second input, there's a buffer overflow as gets is used. 
 
+There is also a flag function that seems to call system("cat flag.txt"). We just need to return to this function.\
 There's a canary, so this isn't so easy. 
 
 We can, however, use our format string vulnerability to leak the canary value, as the canary is stored on the stack and format strings let us leak values stored on the stack. I used a simple fuzzing script to find the canary offset, which was 11. We can set a breakpoint at the instruction which checks the canary and paste in a cyclic pattern to get the offset to the canary, which is 24 by checking the loaded canary value from the stack against the pattern. Our payload will be:

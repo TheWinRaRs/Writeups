@@ -4,7 +4,7 @@ Very similar to FIAS, so I won't explain the parts about a stack canary.
 
 This time, there's PIE. 
 
-What changes? What changes is that the address of our ever-so-important flag function changes every time. 
+What changes? What changes is that the address of our ever-so-important flag function changes every time, as PIE randomises the base of the binary.
 
 What we need to do is leak a value on the stack that we can calculate the binary base from.
 
@@ -17,9 +17,10 @@ So? So, we can leak an instruction of a function in the binary, and calculate th
 I chose stack item 3, the address of the instruction in say_hi after it calls the pc_get_thunk function.
 Our exploit:
 
-Leak canary and binary base in one go with format string
-Send junk + canary + junk + flag address
+Leak canary and binary base in one go with format string\
+Send junk + canary + junk + flag address\
 Script below:
+
 ```python
 from pwn import *
 import re

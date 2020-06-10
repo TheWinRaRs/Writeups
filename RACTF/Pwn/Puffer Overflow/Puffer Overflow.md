@@ -18,14 +18,14 @@ We must generate python bytecode that utilises the small set of functions and va
 
 Not very readable, but in normal python code, 
 ```python
-globals()['eval']("__builtins__.__import__('os').popen("cat /home/ractf/flag.txt").read())
+globals()['eval']('__builtins__.__import__("os").popen("cat /home/ractf/flag.txt").read()')
 ```
 How can we do this? We can't just go about compiling a .pyc or code using compile() - those files create constants and globals to suit them. We can't do this however, we must only use constants and variables given to us. We can analyse the put_on_stack function, and see what it does
 
-`b"t\x00"` - load the first global, chr. We can replace with \x02 to load the 3rd global, globals
-`b"d<number>"` - load constant for argument. When doing globals(), we don't need this.
-`b"\x83\x01"` - call current function with 1 argument
-`b"\x17\x00"` - binary add. does first value on stack + second value. note it's called binary but it can be used to concatenate strings just like adding numbers bcoz its python at the end of the day
+* `b"t\x00"` - load the first global, chr. We can replace with \x02 to load the 3rd global, globals
+* `b"d<number>"` - load constant for argument. When doing globals(), we don't need this.
+* `b"\x83\x01"` - call current function with 1 argument
+* `b"\x17\x00"` - binary add. does first value on stack + second value. note it's called binary but it can be used to concatenate strings just like adding numbers bcoz its python at the end of the day
 
 we can use this to generate bytecode to call globals, `b"t\x02\x83\x00"`. Then, we must dynamically construct the word "eval" using only chr via the same methods the put_on_stack function uses. After that, we use the BINARY_SUBSCR opcode, b"\x19\x00", which computes TOP1 = TOP1[TOP2]
 

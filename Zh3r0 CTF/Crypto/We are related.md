@@ -28,5 +28,6 @@ Then, there's encrypt. Our message is appended to the flag, then encrypted using
 So..
 We now have the encryption of the flag, and the encryption of f(flag), where f(x) = 256x + 65
 
-Using this, we can execute franklin reiter's related message attack. I copied some sage code and included variables. You can run the sage code on the sage cell server, https://sagecell.sagemath.org/. The output will be the hex encoding of the message, which decodes to "RSA is secure and all but the only thing I want to say is zh3r0{Hey_y0u_Sh0u1dn't_S3nd_r3l4ted_m3ssag3s_0r_h4v3_shot_p4ddings_wh3n_e_1s_sm411!!!!!}."
-Sage script below.
+Using this, we can execute franklin reiter's related message attack. I copied some sage code and included variables. You can run the sage code on the sage cell server, https://sagecell.sagemath.org/. The output will be the hex encoding of the message, which decodes to "RSA is secure and all but the only thing I want to say is 
+#### zh3r0{Hey_y0u_Sh0u1dn't_S3nd_r3l4ted_m3ssag3s_0r_h4v3_shot_p4ddings_wh3n_e_1s_sm411!!!!!}."
+

@@ -1,4 +1,4 @@
-# Inspector-general
+# Inspector-General
 
 Inspect element, the flag will be in the `<head>`
 

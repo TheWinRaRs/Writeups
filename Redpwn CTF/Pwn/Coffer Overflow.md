@@ -4,7 +4,7 @@ Read source, there's a code var.
 
 It's set to 0. At the end, if it's not 0, a shell is popped.
 
-Literally HQ chall lol, just spam chars and a shell pops, cat flag.txt
+Pretty simple chall, just spam chars and a shell pops, cat flag.txt
 
 <hr>
 

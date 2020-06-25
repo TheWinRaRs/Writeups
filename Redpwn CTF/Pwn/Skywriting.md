@@ -14,12 +14,15 @@ The read function does not null terminate. That means our input will not be null
 
 For example, say this was the stack
 
-00 00 00 00 00 00 00 00 00 <canary>
+00 00 00 00 00 00 00 00 00 \<canary>
 
 we could write like so
-41 41 41 41 41 41 41 41 0a <canary>
 
-now, when it prints, it'll keep printing, leaking the canary and saved RBP. NOTE: Canaries start with null bytes! We will have to overflow one byte of the canary so that we can read the rest. It doesn't matter that we overflow the canary until we make the program ret, but by then we will know what the full canary is and be able to replace it.
+41 41 41 41 41 41 41 41 0a \<canary>
+
+now, when it prints, it'll keep printing, leaking the canary and saved RBP. 
+
+NOTE: Canaries start with null bytes! We will have to overflow one byte of the canary so that we can read the rest. It doesn't matter that we overflow the canary until we make the program ret, but by then we will know what the full canary is and be able to replace it.
 
 We can use this again to leak the saved ret address, which will be __libc_start_main_ret. 
 Once all these values are leaked, we send the finished exploit. notflag{a_cloud_is_just_someone_elses_computer}\n\x00 + padding + canary + more padding + poprdi + /bin/sh address + retgadget + systemaddress

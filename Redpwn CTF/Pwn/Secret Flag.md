@@ -1,12 +1,8 @@
 # Secret Flag
 
-From the desc we know it's a format string. There's no symbol for main, 
+From the desc we know it's a format string. There's no symbol for main, so i opened it up in radare2. 
 
-so i opened it up in radare2. 
-
-It opens mallocs a heap address, stores it on the stack, opens `flag.txt`, 
-
-and reads it to that heap address. We can use the format specifier %s to read the flag by referencing this heap address. 
+It opens mallocs a heap address, stores it on the stack, opens `flag.txt`, and reads it to that heap address. We can use the format specifier %s to read the flag by referencing this heap address. 
 
 I didn't bother actually calculating the offset and just bruteforced it.
 

@@ -2,7 +2,7 @@
 
 So first things first, create a pastebin. When you go to the display, you'll see a url like https://static-pastebin.2020.redpwnc.tf/paste/#PjxpbWcgc3JjPXggb25lcnJvcj0iZG9jdW1lbnQubG9jYXRpb249J2h0dHA6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj11YjgyWGIxQzhvcyciPg==
 
-### Disclamer, that link functions as an IP grabber. Click at your own risk. We at The WinRaRs are not responsible for any harm that clicking on this link will bring.
+### Disclaimer, that link functions as an IP grabber. Click at your own risk. We at The WinRaRs are not responsible for any harm that clicking on this link will bring.
 
 That looks kinda like base64, and if you base64 decode the thing after https://static-pastebin.2020.redpwnc.tf/paste/# you'll find it decodes to the content of the pastebin! This allows us to easily create pastebin messages.
 

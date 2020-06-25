@@ -3,7 +3,7 @@
 Our array is `{0x1, 0xa, 0x3, 0x2, 0x5, 0x9, 0x8, 0x7, 0x4, 0x6}`
 
 
-And every number we enter swaps arr[i] with arr[i+1]
+And every number we enter `swaps arr[i]` with `arr[i+1]`
 
 https://www.hackerearth.com/practice/algorithms/sorting/bubble-sort/visualize/ went brrr and I got the swaps 
 ```

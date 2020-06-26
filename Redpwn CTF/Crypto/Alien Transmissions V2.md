@@ -1,4 +1,5 @@
-# Alien Transmissions 
+# Alien Transmissions v2
+## Brief
 
 The aliens are at it again! We've discovered that their communications are in base 512 and have transcribed them in base 10. However, it seems like they used XOR encryption twice with two different keys! We do have some information:
 
@@ -9,13 +10,11 @@ The aliens are at it again! We've discovered that their communications are in ba
 
 481 is probably going to be the most common number, as this is the alien word delimiter. We can use this to execute a frequency attack.
 
-The lowest common multiple of 21 and 19 is 399. The alien message was XORed with the 21 length key, and then the 19 length key. Because of how xor works,
+The lowest common multiple of 21 and 19 is 399. The alien message was XORed with the 21 length key, and then the 19 length key. Because of how xor works, `message XOR first key XOR second key = message XOR (first key XOR second key)`
 
-`message XOR first key XOR second key = message XOR (first key XOR second key)`
+Therefore, if we stack the two keys against each other, and XOR (that is 21 * 19-length key XOR 19 * 21-length key) we get an "ultra-key" of length 399.
 
-if we stack the two keys against each other, and XOR (that is 21 * 19-length key XOR 19 * 21-length key) we get an "ultra-key" of length 399.
-
-How can we derive this key? Frequency analysis, our best friend!
+How can we derive this key? Frequency analysis, of course.
 
 If we take every 399th number with different starting points(like nums[0::399], nums[1::399], etc.) then the subset of numbers we get from this will all be XORed with the same value!
 
@@ -29,11 +28,11 @@ We can generate a "mapping". By XORing every possible pair of chars in our alpha
 
 Then, we can significantly reduce the amount of possible chars we have for one key. We started with the 19-length key. Again, getting every 19th char starting at different starting points, we can get one char of the key XORed with lots of different other, PRINTABLE AND IN THE ALPHABET, values.
 
-Essentially, for each character of the key, we can create a list of possible numbers such that every number is char xor K for some PRINTABLE AND IN THE ALPHABET k.
+Essentially, for each character of the key, we can create a list of possible numbers such that every number is char xor K for some PRINTABLE AND IN THE ALPHABET K.
 
 From there, we can use the alphabet as a whitelist for possible chars in one position of the key. 
 
-s impossible to xor a char and another char in the alphabet to get a certain number in the subset we create, then we know that char of the key can NOT be that.
+If it's impossible to xor a char and another char in the alphabet to get a certain number in the subset we create, then we know that char of the key can NOT be that.
 
 Using a search like so,
 ```python
@@ -100,8 +99,8 @@ We can reduce the 19-length key to all of it's possible values in each position,
 ['1', '6']
 ['2', '5']
 ```
-we could use more frequency analysis to enumerate from there, but it's clear that this is going to be _th3_53c0nd_15_th15
+we could use more frequency analysis to enumerate from there, but it's clear that this is going to be `_th3_53c0nd_15_th15`
 
-From there, we simply XOR _th3_53c0nd_15_th15 back with our ultra-key to get the first part of the flag, h3r3'5_th3_f1r5t_h4lf
+From there, we simply XOR `_th3_53c0nd_15_th15` back with our ultra-key to get the first part of the flag, `h3r3'5_th3_f1r5t_h4lf`
 
 #### Flag: flag{h3r3'5_th3_f1r5t_h4lf_th3_53c0nd_15_th15}

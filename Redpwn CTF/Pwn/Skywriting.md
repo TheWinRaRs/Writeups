@@ -29,7 +29,7 @@ We can use this again to leak the saved ret address, which will be `__libc_start
 Once all these values are leaked, we send the finished exploit. notflag{a_cloud_is_just_someone_elses_computer}\n\x00 + padding + canary + more padding + poprdi + /bin/sh address + retgadget + systemaddress
 
 NOTE: We can leak the binary base through the .fini address. We don't strictly *need* it here, as libc has ROP gadgets, but it's useful.
-```
+```python
 from pwn import *
 mode = sys.argv[1]
 NUM_TO_CANARY = 0x90 - 0x8

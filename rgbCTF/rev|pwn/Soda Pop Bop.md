@@ -5,7 +5,7 @@ House of force + tcache_perthread_struct overwrite/tcache poisoning
 Let's break down the main execution of the program. You input the party size, and it mallocs the party size << 5. Essentially, the party size * 32.
 
 This is so that it can allocate enough party member structs, where the party member struct looks like this
-```javascript
+```c
 struct member{
   char name[24];
   long drink;
@@ -41,7 +41,7 @@ The only useful printing we can do is singing a song. This means in order to lea
 How?
 
 Let's take a look at the tcache_perthread_struct, which is stored at the very beginning of the heap.
-```javascript
+```c
 typedef struct tcache_perthread_struct
 
 {
@@ -60,7 +60,7 @@ The wonderful thing about tcache is the lack of checks. Because all chunks in a 
 So, we can use the house of force(malloc-ing a chunk with a specific size that when added from the top chunk location it will cause integer overflow that makes malloc place the top chunk back at tcache_perthread_struct) to get the top chunk at the tcache perthread. At this point, the top chunk will have size 0x269. I found that allocating 0x230 was the highest I could get without malloc throwing a hissy fit.
 
 So that's how we gain control of tcache perthread, which gives us full tcache control. What do we do with this?
-```javascript
+```c
 typedef struct tcache_entry
 
 {
@@ -100,11 +100,13 @@ Tcache would be like so
 0x20 bin -> puts@got -> puts
 0x30 bin -> writeable area
 0x40 bin -> writeable area -> 0x0
-
+```
+```
 So, let's do our two 0 chunk allocations and leak libc.
 0x30 bin -> writeable area
 0x40 bin -> writeable area -> 0x0
 ```
+
 Choose a song of size 0x20, will be served from the 0x30 bin.
 
 0x40 bin -> writeable area -> 0x0

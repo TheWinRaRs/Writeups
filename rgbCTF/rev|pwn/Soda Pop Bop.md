@@ -136,8 +136,6 @@ Summarised plan:
 8. Create 0x30 length song. Create another. This will be at malloc hook, write system to it
 9. Choose a song where the song title size represents the pointer to /bin/sh in libc
 
-The below exploit script does everything up to and including overwriting malloc hook with system. It also prints the /bin/sh pointer as decimal to you, then opens an interactive prompt. From there, manually choose a song, input the number, and a shell will be popped.
-
 We can cat `/pwn/flag.txt` to get the flag.
 
 Script:

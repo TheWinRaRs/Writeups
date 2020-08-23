@@ -411,4 +411,4 @@ hash = "93dc2d9e92adc268ba4fcda976920d286389bd047de5c15f924e8cd1216a4666"
 solve(hash)
 ```
 
-Flag: CTF{sHa_roUnD_k3Ys_caN_b3_r3vERseD}
+#### Flag: `CTF{sHa_roUnD_k3Ys_caN_b3_r3vERseD}`

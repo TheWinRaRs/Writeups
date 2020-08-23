@@ -129,13 +129,21 @@ Taking another look at the script however, we can see that the keys generated ar
 Knowing this, if we know the initial state and the fact that values each round are shifted right by one, we generate this table: (using sample values here)
 
 [1779033703, 3144134277, 1013904242, 2773480762, 1359893119, 2600822924,  528734635, 1541459225] # initial state (pre-rounds)
+
 [xxxxxxxxxx, 1779033703, 3144134277, 1013904242, xxxxxxxxxx, 1359893119, 2600822924,  528734635]
+
 [xxxxxxxxxx, xxxxxxxxxx, 1779033703, 3144134277, xxxxxxxxxx, xxxxxxxxxx, 1359893119, 2600822924]
+
 [xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, 1779033703, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, 1359893119]
+
 [2788502447, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx]
+
 [ 523352746, 2788502447, xxxxxxxxxx, xxxxxxxxxx, 1827710523, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx]
+
 [ 155539695,  523352746, 2788502447, xxxxxxxxxx,  277694853, 1827710523, xxxxxxxxxx, xxxxxxxxxx]
+
 [3585474043,  155539695,  523352746, 2788502447, 4184759956,  277694853, 1827710523, xxxxxxxxxx]
+
 [4286495597, 3585474043,  155539695,  523352746, 3141120170, 4184759956,  277694853, 1827710523] # 7th state
 
 Now, at the time I didn't realise this, but my getprev function was able to recover the entirety of the first half of the table, since I believe that the first half
@@ -146,13 +154,21 @@ So, now we know the entirety of the first 4 columns of the table.
 However, there are still 4 32 bit numbers which we don't know.
 
 [1779033703, 3144134277, 1013904242, 2773480762, 1359893119, 2600822924,  528734635, 1541459225] # inital state
+
 [1348132138, 1779033703, 3144134277, 1013904242, xxxxxxxxxx, 1359893119, 2600822924,  528734635]
+
 [2733599647, 1348132138, 1779033703, 3144134277, xxxxxxxxxx, xxxxxxxxxx, 1359893119, 2600822924]
+
 [1127758716, 2733599647, 1348132138, 1779033703, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, 1359893119]
+
 [2788502447, 1127758716, 2733599647, 1348132138, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx]
+
 [ 523352746, 2788502447, 1127758716, 2733599647, 1827710523, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx]
+
 [ 155539695,  523352746, 2788502447, 1127758716,  277694853, 1827710523, xxxxxxxxxx, xxxxxxxxxx]
+
 [3585474043,  155539695,  523352746, 2788502447, 4184759956,  277694853, 1827710523, xxxxxxxxxx]
+
 [4286495597, 3585474043,  155539695,  523352746, 3141120170, 4184759956,  277694853, 1827710523] # our 7th state
 
 Since we know the initial state, we should probably only look at the initial state and the one after it, since we have more values, 

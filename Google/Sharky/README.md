@@ -1,4 +1,3 @@
-```
 # Sharky - Crypto
 
 This challenge involved reversing the sha256 hash function where there were unknown keys.

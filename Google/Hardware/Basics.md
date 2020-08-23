@@ -48,6 +48,18 @@ I initially attempted to manually step back from the final expected bits, but my
     $display("kit : %b", kittens);
     $display("Goal: %b", 56'd3008192072309708);
 ```
-Using this, I could see how my data was transformed. I sent test pieces of data, starting at `0b0000001`, and doing a binary shift left each iteration; this was to give me recognisable patterns to work from. At this point, I left to work on another challenge, and my teammate was able to do the harder work of using this output to get each of the expected characters: `7LoX%*_x`
+Using this, I could see how my data was transformed. I sent test pieces of data, starting at `0b0000001`, and doing a binary shift left each iteration; this was to give me recognisable patterns to work from.
 
-#### CTF{W4sTh4tASan1tyCh3ck?}
+We were able to get the states of the memory, magic and kittens arrays after entering each character.
+
+From here, we can just manually work out where all the bits are after getting a test case:
+
+`dddfffffffgggggggccccccceeeeeeehhhhhhhddddaaaaaaabbbbbbb`
+
+Then, we can use this on our compare string to get the binary we want:
+
+`00110111 01001100 01101111 01011000 00100101 00101010 01011111 1111000 (converted to 8-bit)`
+
+And then simply decode this to get the password `7LoX%*_x`, which we enter on the remote to get the flag!
+
+#### Flag: `CTF{W4sTh4tASan1tyCh3ck?}`

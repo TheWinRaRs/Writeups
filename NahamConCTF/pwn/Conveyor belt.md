@@ -12,11 +12,12 @@ allocate 0x80 bytes of data. Read 0x80 bytes of data from stdin into this place.
 If the string contains "sh", say the part isn't safe, free the allocated data, return the parameter we got(essentially dont make any chunk and pretend nothing ever happened)
 
 If not, then edit datapointer+0x78 to be the address of the previous part. Essentially, the parts are in the structure
-
+```c
 struct part {
 char name[0x78];
 char* previous_part;
 }
+```
 
 Forming a list. The problem is, whenever it asks us to edit a part, it reads 0x80 bytes when only 0x78 are the data segment - giving us an overwrite of the previous_part field. More on this later.
 

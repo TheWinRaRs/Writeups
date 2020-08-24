@@ -86,16 +86,21 @@ Now, we need to figure out what d and h are, from tmp2 and tmp3.
 
 We know that:
 
+```
 tmp1 = h + s1 + ch + k_i + w_i
 tmp2 = tmp1 + s0 + maj
 tmp3 = d + tmp1
+```
 
 Each of these are then taken mod 4294967296 (referring this to p from now on).
 
 Rewriting these, we get 
+
+```
 tmp1 = h + s1 + ch + k_i + w_i
 tmp2 = h + s1 + ch + k_i + w_i + s0 + maj
 tmp3 = h + s1 + ch + k_i + w_i + d 
+```
 
 Now, we know tmp2 and tmp3, so we and in the case of tmp2, we can just subtract all our known values and take that mod p to get h
 
@@ -179,9 +184,11 @@ The important thing to notice here is that the only place where k_i is used at a
 
 We can then get our equations from before:
 
+```
 tmp1 = h + s1 + ch + k_i + w_i
 tmp2 = h + s1 + ch + k_i + w_i + s0 + maj
 tmp3 = h + s1 + ch + k_i + w_i + d 
+```
 
 Since we know everything for tmp1 except for k_1, I'm going to write a new equation: 
 
@@ -189,9 +196,11 @@ temp = h + s1 + ch + w_i
 
 Then we can rewrite the equations:
 
+```
 tmp1 = temp + k_i
 tmp2 = temp + k_i + s0 + maj
 tmp3 = temp + k_i + d
+```
 
 Now, we can work out what our new variable temp is, since all the values we have, and then we can also easily calculate k_i since we know tmp2, and so we just 
 subtract (temp + s0 + maj) from tmp2 to get k_i, which we then use to calculate tmp3!

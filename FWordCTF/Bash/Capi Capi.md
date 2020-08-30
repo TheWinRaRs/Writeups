@@ -21,6 +21,6 @@ tar: Removing leading `/' from member names
 /home/user1/flag.txt
 user1@d963015da1fa:/tmp$ tar -xvf flag.tar
 ```
-We then go into the /tmp/home/user1 directory and read the flag.txt file
+We then go into the `/tmp/home/user1` directory and read the `flag.txt` file
 
 #### Flag: FwordCTF{C4pAbiLities_4r3_t00_S3Cur3_NaruT0_0nc3_S4id}

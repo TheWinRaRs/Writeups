@@ -45,6 +45,6 @@ while '}' not in flag:
         print(flag)
         quit()
     i += 1
-    ```
+ ```
     
  #### Flag: FwordCTF{NuL1_Byt35?15_IT_the_END?Why_i_c4nT_h4ndl3_That!}

@@ -1,6 +1,7 @@
 # Fibo
 
 Here's what the program does
+
 First of all, use a mess function to encode the flag. This mess function is easily byte by byte bruteforceable if we use the printable range of characters. 
 
 Let's call this mflag.

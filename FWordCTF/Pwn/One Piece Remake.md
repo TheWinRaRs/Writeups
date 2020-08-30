@@ -14,7 +14,7 @@ By doing gotaddress + %7$s we can leak got addresses to get a libc leak. We'll u
 
 Then, we'll execute a got overwrite attack by overwriting printf@got with system. Next gomugomunomi, the input will be system'd, so we enter /bin/sh to get dropped into a shell.
 
-But it's not over! On the remote, there is no cat. The solution to read flag.txt is simple - while read line; do echo $line; done < flag.txt
+But it's not over! On the remote, there is no cat. The solution to read flag.txt is simple - `while read line; do echo $line; done < flag.txt`
 
 This reveals the flag.
 

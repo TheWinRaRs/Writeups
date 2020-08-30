@@ -29,7 +29,7 @@ Next, it pads the mflag so that it's length is a multiple of 9 using .
 Then, it encrypts the mflag using matrix multiplication. Splitting the mflag into bunches of 9, it fills up a 3x3 matrix using the ascii values, multiplies it by a key that we know, transposes the resulting matrix, and turns it into a string result of of form
 ```
 matrix[0,0] matrix[0,1] matrix[0,2] matrix[1,0] .... ----- matrix2[0,0] .....
-``
+```
 This is all done using the messig_up function. Then, it takes the output, parses it, and uses an encode function to encode each of the numbers, writing them all to the output file. I didn't reverse the encode function, and instead just did a classic bruteforce to get the numbers which were all less than 2500.
 
 Here's how the solve script operates.
@@ -42,6 +42,7 @@ Here's how the solve script operates.
 
 Script below:
 ```python
+
 import string
 def mess(msg):
 	enc=""

@@ -3,7 +3,9 @@
 Whatever we input, the binary searches for characters in our input that are the same as a character of the flag in the same position. It prints the number of characters before the first occurrence of this. For example, if the flag was FwordCTF{}, then...
 
 Fgjehrfd -> 0
+
 sws -> 1
+
 gggg -> 4
 
 Using this, we can run a simple byte by byte bruteforce in order to get the data in flag.txt -  NuL1_Byt35?15_IT_the_END?Why_i_c4nT_h4ndl3_That!}

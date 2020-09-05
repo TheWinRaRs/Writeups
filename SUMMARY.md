@@ -200,7 +200,7 @@
     * [EmojASM](ractf/misc/emojiasm.md)
     * [Reading Between The Lines](ractf/misc/reading-between-the-lines.md)
     * [Mad CTF Disease](ractf/misc/mad-ctf-disease.md)
-  * [README](ractf/osint/README.md)
+  * [OSINT](ractf/osint/README.md)
     * [Tree Man](ractf/osint/tree-man.md)
     * [Brick by Brick](ractf/osint/brick-by-brick.md)
     * [Remote Retreat](ractf/osint/remote-retreat.md)

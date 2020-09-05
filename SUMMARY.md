@@ -333,7 +333,7 @@
   * [crypto](rgbctf/crypto/README.md)
     * [Grab your Jisho](rgbctf/crypto/grab-your-jisho.md)
     * [Shakespeare Play, Lost \(and found!\)](rgbctf/crypto/shakespeare-play-lost-and-found.md)
-    * [^e](rgbctf/crypto/e.md)
+    * [\(rgbctf/crypto/e.md\)](rgbctf/crypto/rgbctf-crypto-e.md.md)
     * [I Love Rainbows](rgbctf/crypto/i-love-rainbows.md)
     * [Adequate Encryption Standard](rgbctf/crypto/adequate-encryption-standard.md)
     * [Occasionally Tested Protocol](rgbctf/crypto/occasionally-tested-protocol.md)

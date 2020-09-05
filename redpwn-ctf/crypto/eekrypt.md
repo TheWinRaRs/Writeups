@@ -1,4 +1,4 @@
-# eekrypt
+# seekrypt
 
 the xor process leeks info on the flag. we can get upper and lower bits of p and q. here is good resource
 

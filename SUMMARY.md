@@ -259,7 +259,7 @@
     * [base646464](redpwn-ctf/crypto/base646464.md)
     * [Alien Transmissions v2](redpwn-ctf/crypto/alien-transmissions-v2.md)
     * [itsy bitsy](redpwn-ctf/crypto/itsy-bitsy.md)
-    * [eekrypt](redpwn-ctf/crypto/eekrypt.md)
+    * [seekrypt](redpwn-ctf/crypto/eekrypt.md)
   * [Web](redpwn-ctf/web/README.md)
     * [Panda Facts](redpwn-ctf/web/panda-facts.md)
     * [Static Static Hosting](redpwn-ctf/web/static-static-hosting.md)

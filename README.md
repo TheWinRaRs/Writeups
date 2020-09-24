@@ -10,8 +10,6 @@ This is where we post our writeups for CTF challs!
 
 {% page-ref page="fwordctf/" %}
 
-
-
 {% page-ref page="google/" %}
 
 {% page-ref page="hacktivity-con/" %}
@@ -36,11 +34,4 @@ This is where we post our writeups for CTF challs!
 
 {% page-ref page="tokyo-westerns-ctf/" %}
 
-
-
-
-
 {% page-ref page="zh3r0-ctf/" %}
-
-
-

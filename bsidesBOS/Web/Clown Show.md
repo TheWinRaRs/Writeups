@@ -1,8 +1,7 @@
 # Clown Show
 
-/src.php has src
-
-kinda piss type juggling so basic bruteforce
+/src.php has source for the site. We can send a few params, which are hashed together and the result (chars 5-25) are compared to '0' (using `==`). In php, this is vulnerable to type juggling.
+`0e1434 == '0'` for example. We simply have to find a set of values satisfying these constraints.
 
 ```py
 import hashlib

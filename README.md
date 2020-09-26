@@ -4,6 +4,8 @@ This is where we post our writeups for CTF challs!
 
 {% page-ref page="angstrom/" %}
 
+{% page-ref page="bsidesBOS/" %}
+
 {% page-ref page="crypto-ctf/" %}
 
 {% page-ref page="covid19/" %}

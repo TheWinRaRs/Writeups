@@ -1,9 +1,7 @@
 
 # Tea-mix
-Wow i wonder what this could possibly be
-
-
-/tmp/ has some session files for tmux sessions including /tmp/tmux-0/tea_mix (btw s at the start of perms means unix socket NOT suid)
+The name hinted towards tmux, which was confirmed by session files for tmux in /tmp; including /tmp/tmux-0/tea_mix (root's session) 
+We have permission toy read the socket file, meaning we can attach to the tmux session.
 ```
 export TERM=xterm
 set tty rows/cols to your own terminal

@@ -4,7 +4,7 @@ This is where we post our writeups for CTF challs!
 
 {% page-ref page="angstrom/" %}
 
-{% page-ref page="bsidesBOS/" %}
+{% page-ref page="bsidesbos/" %}
 
 {% page-ref page="crypto-ctf/" %}
 
@@ -37,3 +37,4 @@ This is where we post our writeups for CTF challs!
 {% page-ref page="tokyo-westerns-ctf/" %}
 
 {% page-ref page="zh3r0-ctf/" %}
+

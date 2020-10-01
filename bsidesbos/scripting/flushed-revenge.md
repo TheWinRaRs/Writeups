@@ -1,5 +1,6 @@
 # Flushed Revenge
 
+Run script then profit
 ```python
 from pwn import *
 import string
